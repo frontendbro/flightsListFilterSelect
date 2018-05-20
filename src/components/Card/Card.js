@@ -1,13 +1,13 @@
-import React from 'react';
-import './style.css'
+import React from "react";
+import "./style.css";
 
 function Card({name, from, to, departure, arrival}){
 	return (
-		<li className="card">
-			<p>Откуда - Куда: <br /><span>{from}</span> - {to}</p>
-			<p>Время вылета - Время прилёта: <br /><span>{departure}</span> - <span>{arrival}</span></p>
-			<p>Название авиакомпании:<br /> {name}</p>
-		</li>
+		<div className="card">
+			<p><span className="card-title">Откуда - Куда:</span><br />{from} - {to}</p>
+			<p><span className="card-title">Время вылета - Время прилёта:</span><br />{departure} - {arrival}</p>
+			<p><span className="card-title">Название авиакомпании:</span><br /> {name}</p>
+		</div>
 	)
 }
 

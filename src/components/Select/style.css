@@ -1,0 +1,13 @@
+.select-wrap{
+	display: flex;
+	justify-content: center;
+	background-color: #fff;
+	box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+	margin: 16px 0;
+	padding: 16px;
+	border-radius: 3px;
+}
+
+.select{
+	margin-left: 16px;
+}
