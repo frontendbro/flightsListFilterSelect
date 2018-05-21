@@ -5,10 +5,14 @@ import Select from "./components/Select/Select";
 import Card from "./components/Card/Card";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			selectType: "all"
+		}
+		this.store = this.props.store;
+	}
 
-	state = {
-		selectType: "all"
-	};
 
 	selectChange = (e) => {
 		const val = e.target.value;
@@ -28,7 +32,7 @@ class App extends Component {
 	}
 
 	render() {
-		const cardListData = this.props.data.flights;
+		const cardListData = this.store.getState();
 		const filterData = this.filterFunc(cardListData);
 
 		return (
