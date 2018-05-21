@@ -10,25 +10,26 @@ class App extends Component {
 		selectType: "all"
 	};
 
-
-	// selectChange = (e) => {
-	// 	this.setState ({selectType: e.target.value});
-	// };
-
 	selectChange = (e) => {
-		this.setState (() => {selectType: e.target.value});
+		const val = e.target.value;
+		this.setState (() => {
+			return {
+				selectType: val
+			}
+		});
 	};
+
+	filterFunc = flights => {
+		return flights.filter(item => {
+			if (this.state.selectType === "all") return true;
+
+			return item.carrier.indexOf(this.state.selectType) !== -1;
+		})
+	}
 
 	render() {
 		const cardListData = this.props.data.flights;
-		
-		const filterData = cardListData.filter((item) => {
-			let company = item.carrier;
-			if (this.state.selectType === "all"){
-				return true;
-			}
-			return company.indexOf(this.state.selectType) !== -1;
-		});
+		const filterData = this.filterFunc(cardListData);
 
 		return (
 			<div className="app">
