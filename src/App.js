@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import data from "./data";
 import Select from "./components/Select/Select";
 import Card from "./components/Card/Card";
 
 class App extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			data,
-			selectType: "all"
-		}
-	}
+
+	state = {
+		selectType: "all"
+	};
+
+
+	// selectChange = (e) => {
+	// 	this.setState ({selectType: e.target.value});
+	// };
 
 	selectChange = (e) => {
-		this.setState ({
-			selectType: e.target.value
-		});	
+		this.setState (() => {selectType: e.target.value});
 	};
 
 	render() {
-
-		const cardListData = this.state.data.flights;
+		const cardListData = this.props.data.flights;
 		
 		const filterData = cardListData.filter((item) => {
 			let company = item.carrier;
@@ -42,7 +40,7 @@ class App extends Component {
 					<div className="card-list">
 						{filterData.map((item, i) =>
 							<Card 
-								key={i} 
+								key={item.id} 
 								name={item.carrier} 
 								from={item.direction.from} 
 								when={item.direction.when} 
