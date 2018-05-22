@@ -1,12 +1,6 @@
-import {SELECT_TYPE} from '../actions';
+import {combineReducers} from "redux";
+import select from './select';
 
-export default function reducer(state = [], action) {
-	switch(action.type) {
-		case SELECT_TYPE:
-			
-			return [];
-
-		default:
-			return state;
-	}
-}
+export default combineReducers({
+    select
+});
